@@ -9,10 +9,12 @@ const SessionSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    questions: {
-        type: Array,
-        required: true,
-    },
+    // questions: {
+    //     type: Array,
+    //     required: true,
+    // },
+    items:Array,
+    
     date: {
         type: String,
         default: Date.now()

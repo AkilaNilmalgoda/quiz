@@ -1,0 +1,22 @@
+/* .tt-feature-box{
+    height: 350px;
+} */
+
+.tt-feature{
+    height: 100%;
+    border: solid rgb(0, 65, 101);
+    border-radius: 5px;
+}
+
+.img-box{
+    height: 40%;
+}
+
+.img-box img {
+    height: 100%;
+    width: 100%;
+}
+
+.text-box{
+    height: 60%;
+}

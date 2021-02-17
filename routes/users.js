@@ -15,15 +15,18 @@ router.post('/',
     check('name', 'Name is required')
         .not()
         .isEmpty(),
-        check('email', 'Please include a valid email').isEmail(),
-        check('password', 'Please enter a password with 6 or more characters').isLength({ min:6 })
+    check('email', 'Please include a valid email').isEmail(),
+    //check('country', 'Country is required')
+        //.not()
+        //.isEmpty(),
+    check('password', 'Please enter a password with 6 or more characters').isLength({ min:6 })
 ], 
 async (req, res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array()});
     }
-
+    //add country
     const {name, email, password} = req.body;
 
     try {
@@ -32,7 +35,7 @@ async (req, res) => {
         if(user) {
             return res.status(400).json({msg: 'User already exists'})
         }
-
+        //add country to the list
         user = new User({
             name,
             email,

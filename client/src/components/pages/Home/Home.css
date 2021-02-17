@@ -1,0 +1,54 @@
+/* .landing-hero{
+    
+} */
+.hero{
+    background: transparent;
+}
+
+.hero-half{
+    border: solid aqua;
+}
+
+.image{
+    overflow: hidden;
+}
+
+.hero-image{
+    position: relative;
+    top: 100px;
+    height: 200px;
+    margin-left: -300px;
+}
+
+.appbox{
+    height: 150px;
+}
+
+.singleapp{
+    height: 100%;
+    color: #9D0BFA;
+    background: transparent;
+    /* box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19); */
+    transition: all .5s ease-in-out;
+    border: none;
+    border-radius: 10px;
+}
+
+.singleapp:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+    color: black;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover{
+    text-decoration: none;
+}
+
+.testing{
+    border-radius: 5px;
+}

@@ -4,31 +4,31 @@ const SidebarDat =[
     {
         title: 'Home',
         path: '/',
-        icon:<i class="fas fa-home fa-fw fa-lg"/>,
+        icon:<i className="fas fa-home fa-fw fa-lg"/>,
         className:'nav-text'
     },
     {
         title: 'About',
         path: '/about',
-        icon:<i class="fas fa-school fa-fw fa-lg"/>,
+        icon:<i className="fas fa-search fa-fw fa-lg"/>,
         className:'nav-text'
     },
     {
-        title: 'Courses',
-        path: '/Courses',
-        icon:<i class="fas fa-book-open fa-fw fa-lg"/>,
+        title: 'Apps',
+        path: '/apps',
+        icon:<i className="fas fa-laptop-code fa-fw fa-lg"/>,
         className:'nav-text'
     },
     {
-        title: 'Prices',
-        path: '/Prices',
-        icon: <i class="fas fa-dollar-sign fa-fw fa-lg"/>,
+        title: 'Coming Up',
+        path: '/new',
+        icon: <i className="fas fa-shipping-fast fa-fw fa-lg"/>,
         className:'nav-text'
     },
     {
         title: 'Contacts',
-        path: '/Contacts',
-        icon: <i class="fas fa-phone fa-fw fa-lg"/>,
+        path: '/contact',
+        icon: <i className="fas fa-phone fa-fw fa-lg"/>,
         className:'nav-text'
     }
 ]

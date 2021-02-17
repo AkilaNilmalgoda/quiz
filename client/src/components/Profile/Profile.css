@@ -1,0 +1,9 @@
+.image{
+    height: 20vh;
+    max-width: 200px;
+    border-radius: 5px;
+}
+
+.data-field{
+    border-radius: 5px;
+}

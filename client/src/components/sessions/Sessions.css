@@ -1,0 +1,14 @@
+.session-unit{
+    border: solid rgb(119,36,50);
+    color: white;
+}
+
+.edit-button{
+    color: green;
+    cursor: pointer;
+}
+
+.delete-button{
+    color: red;
+    cursor: pointer;
+}

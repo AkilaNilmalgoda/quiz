@@ -3,9 +3,59 @@
   margin: 0;
 }
 
-body{
-  background: #2980B9;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body {
+  background: linear-gradient(120deg, rgba(0,0,0,1) 100%, rgba(119,36,50,1) 0%);
+  background-size: 100vw 100vh;
+}
 
+.box{
+  background: red;
+  height: 500px;
+  width: 500px;
+}
+
+.text-5{
+  color: #FE56FF;
+}
+
+
+.text-1{
+  color: rgb(169, 178, 177);
+}
+
+.text-2{
+  color: rgb(242, 223, 116);
+}
+
+.text-3{
+  color: rgb(0, 65, 101);
+}
+
+.text-4{
+  color: rgb(119,36,50);
+}
+
+.bg-1{
+  /* background : rgb(169, 178, 177); */
+  background: linear-gradient(120deg, rgba(169, 178, 177, 1) 100%, rgba(119,36,50,1) 100%);
+}
+
+.bg-2{
+  background: rgb(242, 223, 116);
+  background: linear-gradient(120deg, rgba(242, 223, 116, 1) 100%, rgba(119,36,50,1) 100%);
+}
+
+.bg-3{
+  background: rgb(0, 65, 101);
+  background: linear-gradient(120deg, rgba(0, 65, 101, 1) 100%, rgba(119,36,50,1) 100%);
+}
+
+.bg-4{
+  background: rgb(119,36,50);
+  background: linear-gradient(120deg, rgba(119,36,50, 1) 100%, rgba(119,36,50,1) 100%);
+}
+
+.bg-5{
+  background: rgb(119,36,50);
+  background: linear-gradient(120deg, rgba(220,0,254, 1) 20%, rgba(0,192,249,1) 100%);
 }

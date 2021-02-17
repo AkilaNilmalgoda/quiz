@@ -5,7 +5,7 @@ const auth = require('../middleware/auth')
 const User = require('../models/User');
 const Session = require('../models/Session')
 
-//@route  GET api/sessions
+//@route  GET api/sessions 
 //@desc   Get all users sessions
 //@acess  Private
 router.get('/', auth, async (req, res) => {
@@ -29,12 +29,12 @@ router.post('/', [auth, [
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {name, questions} =req.body;
+    const {name, items} =req.body;
 
     try{
         const newSession = new Session({
             name,
-            questions,
+            items,
             user: req.user.id
         });
         const session = await newSession.save();
@@ -51,12 +51,12 @@ router.post('/', [auth, [
 //@desc   Update a session
 //@acess  Private
 router.put('/:id', auth, async (req, res) => {
-    const {name, questions} =req.body;
+    const {name, items} =req.body;
 
     //Build session object
     const sessionFields = {};
     if (name) sessionFields.name = name;
-    if (questions) sessionFields.questions = questions;
+    if (items) sessionFields.items = items;
 
     try {
         let session = await Session.findById(req.params.id)
