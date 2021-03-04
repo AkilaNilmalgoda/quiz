@@ -18,7 +18,7 @@ import {
 } from "../types";
 
 const SessionState = (props) => {
-  const initialState = {
+  const initialState = {  
     sessions: [],
     Edit: {
       id: "",
@@ -56,25 +56,6 @@ const SessionState = (props) => {
       payload: newone,
     });
   };
-
-//   const setEditname = async () => {
-//     // localStorage.setItem("name", name)
-//     if (localStorage.name) {
-//       try {
-//         setLoading(true);
-//         const newone = state.sessions.find(
-//           ({ name }) => name === localStorage.name
-//         );
-
-//         dispatch({
-//           type: SET_EDIT,
-//           payload: newone,
-//         });
-//       } catch (err) {
-//         console.log("error");
-//       }
-//     }
-//   };
 
   //Edit the item
   const editSession = async (edited) => {

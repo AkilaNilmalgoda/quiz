@@ -13,16 +13,16 @@ const SidebarDat =[
         icon:<i className="fas fa-search fa-fw fa-lg"/>,
         className:'nav-text'
     },
+    // {
+    //     title: 'Apps',
+    //     path: '/apps',
+    //     icon:<i className="fas fa-laptop-code fa-fw fa-lg"/>,
+    //     className:'nav-text'
+    // },
     {
-        title: 'Apps',
-        path: '/apps',
-        icon:<i className="fas fa-laptop-code fa-fw fa-lg"/>,
-        className:'nav-text'
-    },
-    {
-        title: 'Coming Up',
-        path: '/new',
-        icon: <i className="fas fa-shipping-fast fa-fw fa-lg"/>,
+        title: 'Profile',
+        path: '/myprofile',
+        icon: <i className="fas fa-user fa-fw fa-lg"/>,
         className:'nav-text'
     },
     {

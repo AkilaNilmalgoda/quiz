@@ -1,5 +1,5 @@
 .session-unit{
-    border: solid rgb(119,36,50);
+    border-radius: 10px;
     color: white;
 }
 
@@ -11,4 +11,4 @@
 .delete-button{
     color: red;
     cursor: pointer;
-}
+} 

@@ -7,3 +7,10 @@
 
 //create server.js
 //start the server
+
+
+//To do
+
+//Alerts
+
+//params => name => id

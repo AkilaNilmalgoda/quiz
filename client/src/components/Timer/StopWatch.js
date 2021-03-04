@@ -52,10 +52,10 @@ const StopWatch = (props) => {
                 <span class="second">{second}</span>
             </div> */}
             <div >
-                <button className="btn bg-3 text-light mr-1" onClick={() => setIsActive(!isActive)} >
+                <button className="btn bg-7 text-dark mr-1" onClick={() => setIsActive(!isActive)} >
                 {isActive ? "Pause" : "Start"}
                 </button>
-                <button className="btn bg-3 text-light" onClick={stopTimer} >
+                <button className="btn bg-7 text-dark" onClick={stopTimer} >
                     Reset
                 </button>
       </div>

@@ -21,7 +21,7 @@ export default (state, action) => {
                 ...state,
                 Edit: action.payload,
                 
-                loading: false
+                loading: false 
             }
         }
         case RESET_EDIT:{

@@ -10,7 +10,7 @@ function Navbar  () {
     const sessionContext = useContext(SessionContext);
 
     const {isAuthenticated, logout, user} = authContext;
-    const {clearSessions} = sessionContext
+    const {clearSessions} = sessionContext 
 
     const onLogout = () => {
         logout(); 
@@ -19,8 +19,8 @@ function Navbar  () {
 
     const authLinks = (
         <Fragment>
-            <li className='welcome p-1 mr-4 text-4'><h5>Hi {user && user.name}</h5></li>
-            <li className='logout p-1'>
+            <li className='welcome my-auto mr-4 text-light'><p className="my-auto">Hi {user && user.name}</p></li>
+            <li className='logout  my-auto'>
                 <a onClick={onLogout} href="#!">
                     <span className='menu-bars-span text-4'> <i className="fas fa-sign-out-alt fa-2x"></i></span>
                     {/* <h4 className=' text-4'>Logout</h4> */}
@@ -63,10 +63,10 @@ function Navbar  () {
                 </div>
                 <div className='d-none d-md-block'>
                     <Link to='/' className='link'>
-                        <h3 className='text-2'>Toastmaster-Connect</h3>
+                        <h3 className='text-light'>Toastmaster-Connect</h3>
                     </Link>
                 </div>
-                <div className='col-3 '>
+                <div className='col-3 p-0'>
                     <div className='justify-content-end d-flex'>
                         {isAuthenticated ? authLinks : guestLinks}
                     </div>

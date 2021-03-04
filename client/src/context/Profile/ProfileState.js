@@ -1,52 +1,66 @@
-import React, { useReducer } from 'react'
-import ProfileContext from './profileContext'
-import profileReducer from './profileReducer'
-import {
-    ADD_PROFILE, 
-    UPDATE_PROFILE,
-} from './types'
+import React, { useReducer } from "react";
+import axios from "axios";
+import ProfileContext from "./profileContext";
+import profileReducer from "./profileReducer";
+import { GET_PROFILE, ADD_PROFILE, UPDATE_PROFILE } from "./types";
 
-const ProfileState = props => {
-        const initialState = {
-            profile : {
-                name:"Adam",
-                surname:"Smith",
-                country:"",
-                club:"",
-                achievements: {}
-            }
-        }
-            
+const ProfileState = (props) => {
+  const initialState = {
+    profile: {
+      name: "",
+      country: "",
+      club: "",
+      achievements: {},
+    },
+  };
 
-    const [state, dispatch] =useReducer(profileReducer, initialState);
+  const [state, dispatch] = useReducer(profileReducer, initialState);
 
-    //Name
+  //Get Profile
 
-    const addProfile = (profile) =>{
+  const getProf = async () => {
+      try {
+          const res = await axios.get("api/profile")
 
-        dispatch({
-            type:ADD_PROFILE,
-            payload: profile
-        })
+          console.log(res.data);
+          
+          dispatch({
+              type: GET_PROFILE,
+              payload: res.data
+          })
+      } catch (err) {
+          console.log("get error");
     }
+  };
 
-    const updateProfile = (profile) =>{
+  //Name
 
-        dispatch({
-            type:UPDATE_PROFILE,
-            payload: profile
-        })
-    }
+  const addProfile = (profile) => {
+    dispatch({
+      type: ADD_PROFILE,
+      payload: profile,
+    });
+  };
 
-    return (
-        <ProfileContext.Provider value={{
-            profile: state.profile,
-            addProfile,
-            updateProfile
-        }}>
-            {props.children}
-        </ProfileContext.Provider>
-    )
-}
+  const updateProfile = (profile) => {
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: profile,
+    });
+  };
 
-export default ProfileState
+  return (
+    <ProfileContext.Provider
+      value={{
+              profile: state.profile,
+        getProf,
+        addProfile,
+        updateProfile,
+      }}
+    >
+      {props.children}
+    </ProfileContext.Provider>
+  );
+};
+
+export default ProfileState;

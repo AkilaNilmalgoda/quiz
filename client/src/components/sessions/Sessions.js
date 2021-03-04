@@ -17,7 +17,7 @@ const Sessions = () => {
         // eslint-disable-next-line
     }, []);
 
-    useEffect(() => {
+    useEffect(() => { 
         resetEdit()
         getSession()
         
@@ -26,46 +26,55 @@ const Sessions = () => {
     if(loading) 
         return <Spinner/>;
     return (
-        <div>
-            <Fragment>
-                {sessions.map((session,id )=>{
-                    return (
-
-                        <div key={id} className='row mx-auto my-5 py-1 session-unit'>
-                            <div className='col-md-8 col-10'>
-                                <h2 >{session.name}</h2>
-                            </div>
-                            <div className='col-1 my-auto'>
-                            <Link to={`/sessions/edit/${session.name}`} >
-                                <span className='edit-button'><i class="fas fa-edit fa-lg"></i></span>
-                            </Link>
-                            </div>
-                            <div className='col-1 my-auto'>
-                                <span  onClick={()=>deleteSession(session._id)}className='delete-button'><i class="fas fa-trash-alt fa-lg"></i></span>
-                                
-                            </div>
-                            <div className='col-md-2 col-12 my-auto'>
-                            <Link to={`/present/${session.name}`} >
-                                <button className='btn bg-2 col-12'>Present</button>
-                            </Link>
-                            </div>
-                            
-                        </div>
-                    )
-                }
-                )}
-                <div className='row d-flex mx-auto'>
-                    <div className='mx-auto'>
-                    <Link to='/add'>
-                        <button className='btn bg-4 text-light'>Add a Session</button>
+      <div>
+        <Fragment>
+          <div className="bg-6 p-2 br">
+            {sessions.map((session, id) => {
+              return (
+                <div
+                  key={id}
+                  className="row  p-0 mx-auto my-1 py-1 session-unit bg-7"
+                >
+                  <div className="col-md-8 text-dark col-8  my-auto ">
+                    <h5 className="my-auto">{session.name}</h5>
+                  </div>
+                  <div className="col-1 my-auto">
+                    <Link to={`/sessions/edit/${session.name}`}>
+                      <span className="edit-button">
+                        <i class="fas fa-edit fa-lg"></i>
+                      </span>
                     </Link>
-                    </div>
-                    
+                  </div>
+                  <div className="col-1 my-auto">
+                    <span
+                      onClick={() => deleteSession(session._id)}
+                      className="delete-button"
+                    >
+                      <i class="fas fa-trash-alt fa-lg"></i>
+                    </span>
+                  </div>
+                  <div className="col-md-2 col-12 my-auto ">
+                    <Link to={`/present/${session.name}`}>
+                      <button className="btn bg-2 col-12">Present</button>
+                    </Link>
+                  </div>
                 </div>
-                
-            </Fragment>
-        </div>
-    )
+              );
+            })}
+
+            <div className="row d-flex mx-auto">
+              <div className="mx-auto">
+                <Link to="/add">
+                  <button className="btn bg-4 text-light mt-2">
+                    Add a Session
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Fragment>
+      </div>
+    );
 }
 
 export default Sessions

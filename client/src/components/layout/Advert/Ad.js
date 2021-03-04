@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Add from './Images/Ad1.gif'
 import './Ad.css'
 

@@ -7,7 +7,7 @@ const Session = require('../models/Session')
 
 //@route  GET api/sessions 
 //@desc   Get all users sessions
-//@acess  Private
+//@acess  Private 
 router.get('/', auth, async (req, res) => {
     try {
         const sessions = await Session.find({user: req.user.id}).sort({date: -1});
@@ -53,7 +53,7 @@ router.post('/', [auth, [
 router.put('/:id', auth, async (req, res) => {
     const {name, items} =req.body;
 
-    //Build session object
+    //Build session object 
     const sessionFields = {};
     if (name) sessionFields.name = name;
     if (items) sessionFields.items = items;

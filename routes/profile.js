@@ -35,17 +35,14 @@ router.post('/', [auth, [
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {name, surname, country, club, prevclubs, achievements, interests} =req.body;
+    const {name, country, club, achievements} =req.body;
 
     try{
         const newProfile = new Profile({
-            name,
-            surname, 
+            name, 
             country, 
-            club,  
-            prevclubs,
+            club,
             achievements,
-            interests,
             user: req.user.id
         });
         const profile = await newProfile.save();

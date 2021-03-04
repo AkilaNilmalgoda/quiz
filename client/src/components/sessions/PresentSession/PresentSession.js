@@ -31,7 +31,7 @@ const PresentSession = ({match}) => {
 
     const onChange = e => setSpeaker(e.target.value)
 
-    const addNewSpeaker = e => {
+    const addNewSpeaker = e => { 
         e.preventDefault();
 
         const newspeaker = {id:display.id, speaker:speaker}
@@ -60,8 +60,7 @@ const PresentSession = ({match}) => {
     if(loading) 
         return <Spinner/>;
     return (
-
-        <div>
+      <div>
             {/* Question Section */}
             <h1 className='text-4 text-center py-4'>Toastmasters Table Topics</h1>
             <h2 className='text-3 text-center py-2'>{IntShow.name}</h2>
@@ -70,7 +69,7 @@ const PresentSession = ({match}) => {
                 
                 return(
                         <div key={object.id} className="col-12 col-md-4 col-sm-12 homework-result-unit mb-2" >
-                            <div className="question-number-unit" onClick={() =>setDisplay(object)}>
+                            <div className="question-number-unit bg-7" onClick={() =>setDisplay(object)}>
                                 <h4 className="text-center">Question</h4>
                                 <h4 className="text-center">{index +1}</h4>
                                 <h5 className="text-center">{object.speaker}</h5>
@@ -84,8 +83,8 @@ const PresentSession = ({match}) => {
             <div>
                 {display.item !== "" && 
                     <div className='Modal-overlay' >
-                        <div className='Modal'>
-                            <div className='question-box d-flex'>
+                        <div className='Modal '>
+                            <div className='question-box d-flex '>
                             
                                 <h1 className='display-question m-auto text-light'>{display.item}</h1>
                             </div>
@@ -151,7 +150,7 @@ const PresentSession = ({match}) => {
 
             
         </div>
-    )
+    );
 }
 
 export default PresentSession

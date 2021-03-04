@@ -9,19 +9,15 @@ const EditSession = ({ match }) => {
 
   const {
     setEditItem,
-    //setEditname,
     loading,
     Edit,
-    setLoading,
     editSession,
-    sessions,
-    getSession,
   } = sessionContext;
 
   const finalUpdate = () => {
     const edited = { name: showTheme, items: showQuestion };
     editSession(edited);
-  };
+  }; 
 
   useEffect(() => {
       setEditItem(match.params.name)
@@ -30,44 +26,19 @@ const EditSession = ({ match }) => {
     
     console.log(Edit.name);
     
-    
-    // if (sessions.length !== 0) {
-    //     setEditItem(match.params.name)
-    // }
-
-//   useEffect(() => {
-//     const func = async () => {
-//       await setEditItem(match.params.name);
-//     };
-
-//     func();
-//   }, [sessions]);
-
-//     if (sessions.length !== 0) {
-//     console.log("Test");
-//     }
-
-
-  //const Edit = sessions.find(({ name }) => name === match.params.name);
 
     useEffect(() => {
     
       setShowTheme(Edit.name)
       setShowQuestion(Edit.items)
-    //console.log(Edit);
   }, [Edit]);
 
-//   if (Edit) {
-//     console.log(Edit.name);
-//   }
 
   //Theme update
 
   const [theme, setTheme] = useState("");
 
   const [showTheme, setShowTheme] = useState("");
-
-  
 
   const [hideInput, setHideInput] = useState(true);
 
@@ -142,112 +113,128 @@ const EditSession = ({ match }) => {
   if (loading) return <Spinner />;
   return (
     <div>
-      <h2 className="text-2 my-4">Edit Session</h2>
-      {/* Edit Theme */}
-      <form>
-        <div>
-          {hideInput ? (
-            <div className="my-3">
-              <h2 className="text-3">The Theme of the meeting :</h2>
-              <div className="d-flex">
-                {/* <h2>{Edit.name}</h2> */}
-                <h2 className="pr-2 text-light">{showTheme}</h2>
-                <span className="edit-btn" onClick={handleEditTheme}>
-                  <i className="fas fa-edit fa-xs"></i>
-                </span>
-              </div>
-            </div>
-          ) : (
-            <div className="input-group my-3">
-              <input
-                id="theme"
-                type="text"
-                placeholder="theme"
-                name="theme"
-                value={theme}
-                onChange={onChangeTheme}
-                className="col-4 form-control"
-              />
-              <div className="input-group-append">
-                <button className="btn bg-4 text-light " onClick={addTheme}>
-                  Add
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </form>
-      {/* Edit Questions */}
-      <form>
-        <div className="input-group mb-3">
-          <input
-            id="question"
-            type="text"
-            placeholder="add a question"
-            name="question"
-            value={question || ""}
-            onChange={onChangeQuestion}
-            className="col-9 form-control"
-          />
+      <div className="container">
+        <div className="col-12 p-0 mx-auto">
+          <div className="row col-12 timer-main p-3 mx-auto">
+            <div className="timer-col col-12 p-2">
+              <h4>Edit Session</h4>
+              <div className="col-12 p-1 timer-table-box pl-3">
+                <div className="my-3">
+                  {hideInput ? (
+                    <div className=" br bg-6 d-inline-block p-1">
+                      <h4 className="text-dark">The Theme of the meeting</h4>
+                      <div className="d-flex">
+                        <h3 className="pr-2 text-dark">{showTheme} </h3>
+                        <span className="edit-btn" onClick={handleEditTheme}>
+                          <i className="fas fa-edit fa-xs"></i>
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="input-group mb-3">
+                      <input
+                        id="theme"
+                        type="text"
+                        placeholder="theme"
+                        name="theme"
+                        value={theme}
+                        onChange={onChangeTheme}
+                        className="col-4 form-control"
+                        required
+                      />
+                      <div className="input-group-append">
+                        <button
+                          className="btn bg-4 text-light"
+                          onClick={addTheme}
+                        >
+                          Add
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="input-group mb-3">
+                  <input
+                    id="question"
+                    type="text"
+                    placeholder="add a question"
+                    name="question"
+                    value={question || ""}
+                    onChange={onChangeQuestion}
+                    className="col-9 form-control"
+                  />
 
-          {updateThis.item ? (
-            <div className="input-group-append">
-              <button className="btn bg-2" onClick={handleUpdateQuestion}>
-                Update
-              </button>
-            </div>
-          ) : (
-            <div className="input-group-append">
-              <button className="btn bg-4 text-light" onClick={addQuestion}>
-                Add New
-              </button>
-            </div>
-          )}
-        </div>
-      </form>
-
-      <div>
-        <h2 className="text-2">Questions :</h2>
-        <div>
-          {showQuestion.map((object, id) => {
-            return (
-              <div key={id} className="d-flex my-3">
-                <h4 className="pr-2 text-light">
-                  {id + 1}. {object.item}
-                </h4>
-                <span
-                  className="pr-2 edit-btn"
-                  onClick={() => handleEditQuestion(object.id)}
-                >
-                  <i className="fas fa-edit fa-xs"></i>
-                </span>
-                <span
-                  className="delete-btn"
-                  onClick={() => handleDeleteQuestion(object.id)}
-                >
-                  <i className="fas fa-trash-alt fa-xs"></i>
-                </span>
+                  {updateThis.item ? (
+                    <div className="input-group-append">
+                      <button
+                        className="btn bg-4 text-light"
+                        onClick={handleUpdateQuestion}
+                      >
+                        Update
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="input-group-append">
+                      <button
+                        className="btn bg-4 text-light"
+                        onClick={addQuestion}
+                      >
+                        Add
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
-            );
-          })}
+              <div className="col-12 p-1 timer-table-box mt-2 px-2">
+                <div>
+                  <h5 className="text-dark pl-3">Questions:</h5>
+                  <div className="bg-6 br p-3 m-3">
+                    {showQuestion.map((item, id) => {
+                      return (
+                        <div key={id} className="d-flex ">
+                          <h5 className="pr-2 text-dark">
+                            {id + 1}. {item.item}
+                          </h5>
+                          <span
+                            className="pr-2 edit-btn"
+                            onClick={() => handleEditQuestion(item.id)}
+                          >
+                            <i className="fas fa-edit fa-xs"></i>
+                          </span>
+                          <span
+                            className="delete-btn"
+                            onClick={() => handleDeleteQuestion(item.id)}
+                          >
+                            <i className="fas fa-trash-alt fa-xs"></i>
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+              <div className="col-6 p-1 timer-table-box pl-3 mx-auto mt-2 ">
+                <div className="row">
+                  <div className="col-md-5 col-10 mx-auto pt-1 ">
+                    <button
+                      className="btn bg-4 text-light col-12"
+                      onClick={() => finalUpdate(showTheme, showQuestion)}
+                    >
+                      Update
+                    </button>
+                  </div>
+                  <div className="col-md-5 col-10 mx-auto pt-1 ">
+                    <Link to="/sessions">
+                      <button className="btn bg-3 text-light col-12">
+                        Go Back
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="row pt-5">
-        <div className="col-md-3 d-none d-md-block"></div>
-        <div className="col-md-2 col-10 mx-auto pt-1  ">
-          <button
-            className="btn bg-4 text-light col-12"
-            onClick={() => finalUpdate(showTheme, showQuestion)}
-          >
-            Update
-          </button>
-        </div>
-        <div className="col-md-2 col-10 mx-auto pt-1  ">
-          <Link to="/sessions">
-            <button className="btn bg-3 text-light col-12">Go Back</button>
-          </Link>
-        </div>
-        <div className="col-md-3 d-none d-md-block"></div>
       </div>
     </div>
   );

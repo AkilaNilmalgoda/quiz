@@ -9,24 +9,31 @@ const SessionHome = () => {
     const {isAuthenticated, loading} = authContext;
     
 
-    useEffect(() => {
-        authContext.loadUser();
-        //setLoading(false)
-        // eslint-disable-next-line
-    }, []);
+    // useEffect(() => {
+    //     authContext.loadUser();
+    //     //setLoading(false)
+    //     // eslint-disable-next-line
+    // }, []);
 
 
     if(loading) 
         return <Spinner/>;
     return (
-        <div>
-            <h1 className='text-light'>Created Sessions</h1>
-            <Route exact path="/sessions">
+      <div className="container">
+        <div className="col-12 p-0 mx-auto">
+          <div className="col-12 row timer-main p-3 mx-auto">
+            <div className="timer-col col-12 p-2">
+              <h4 className="text-dark">Created Sessions</h4>
+              <Route exact path="/sessions">
                 {!isAuthenticated ? <Redirect to="/login" /> : <Sessions />}
-</Route>
-            {/* <Sessions/> */}
+              </Route>
+            </div>
+          </div>
         </div>
-    )
+
+        {/* <Sessions/> */}
+      </div>
+    );
 }
 
 export default SessionHome

@@ -9,10 +9,10 @@ const ProfileSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    surname: {
-        type: String,
-        required: true
-    },
+    // surname: {
+    //     type: String,
+    //     required: true
+    // },
     country: {
         type: String,
         required: true
@@ -21,15 +21,15 @@ const ProfileSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    prevclubs: {
-        type: Array
-    },
+    // prevclubs: { 
+    //     type: Array
+    // },
     achievements: {
         type: Array
     },
-    interests: {
-        type: Array
-    },
+    // interests: {
+    //     type: Array
+    // },
 
 });
 
