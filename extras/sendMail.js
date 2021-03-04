@@ -1,3 +1,4 @@
+require('dotenv').config()
 const nodemailer = require("nodemailer");
 
 
@@ -6,8 +7,8 @@ function sendResetMail(email, password) {
      service: "gmail",
      tls: { rejectUnauthorized: false },
      auth: {
-       user: "jpono63@gmail.com",
-       pass: "asruck141",
+       user: process.env.EMAIL,
+       pass: process.env.PASSWORD,
      },
    });
 

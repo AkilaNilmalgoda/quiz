@@ -18,6 +18,7 @@ const Profile = () => {
   useEffect(() => {
     authContext.loadUser();
     getProf()
+    
     // eslint-disable-next-line
   }, []);
 
@@ -44,6 +45,7 @@ const Profile = () => {
     } else {
       console.log("Passwords Do Not Match");
     }
+    setShowPasswordChange(false);
   };
 
   return (
